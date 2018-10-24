@@ -37,5 +37,5 @@ Audits should be conducted on the following:
 
 ## Conclusion
 
-When running containerized applications, specifically Docker, the considerations above will greatly mitigate the threats to any host operating system. 
+When running containerized applications, specifically Docker, the considerations above will greatly mitigate the threats to any host operating system. As mentioned in the introduction, containers are only as secure as the underlying host, so security teams need to follow up on the outlined considersations and apply the appropriate countermeasures.
 
