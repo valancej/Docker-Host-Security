@@ -16,4 +16,26 @@ Once an operating system has been chosen, it is important for organizations to s
 
 All authentication directly to the OS should be audited and logged. System administrators should only grant access to the appropriate users, along with using keys for remote logins. Additionally, firewalls should be implemented, and access should only be allowed on trusted networks. Organizations should implement a strong log monitoring and manages process that terminates in a dedicated log storage host, with restricted access. Additionally, the Docker daemon currently requires 'root' privileges. A user need to be added to the 'docker' group to gain access rights. Organizations should remove any users from the 'docker' group that are not trusted, or do not need privileges. 
 
-## 
+## Host file system
+
+Organizations should be make sure containers are run with the minimal set of file system permission required. Containers should not be able to mount sensitive directories on a host's file system, especially conatining configuration settings for the OS. This is a bad practice and should be avoided. An attack would then be able to execute any command that the docker service can run, which typically provides access to the whole host system as the docker service runs as root (see above).
+
+## Audit considerations
+
+Audits should be conducted on the following: 
+
+- Docker daemon activities should be audited
+- Docker files and directories should be audited, if applicable.
+    - `/var/lib/docker`
+    - `/etc/docker`
+    - `docker.service`
+    - `docker.socket`
+    - `/etc/default/docker`
+    - `/etc/docker/daemon.json`
+    - `/usr/bin/docker-containerd`
+    - `/usr/bin/docker-runc`
+
+## Conclusion
+
+When running containerized applications, specifically Docker, the considerations above will greatly mitigate the threats to any host operating system. 
+
