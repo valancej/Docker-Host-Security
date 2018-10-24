@@ -14,4 +14,6 @@ Once an operating system has been chosen, it is important for organizations to s
 
 ## User access rights
 
-All authentication directly to the OS should be audited and logged. Only priveleged users should be allowed access to these operating systems. More importantly, 
+All authentication directly to the OS should be audited and logged. System administrators should only grant access to the appropriate users, along with using keys for remote logins. Additionally, firewalls should be implemented, and access should only be allowed on trusted networks. Organizations should implement a strong log monitoring and manages process that terminates in a dedicated log storage host, with restricted access. Additionally, the Docker daemon currently requires 'root' privileges. A user need to be added to the 'docker' group to gain access rights. Organizations should remove any users from the 'docker' group that are not trusted, or do not need privileges. 
+
+## 
